@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Persister;
+namespace Bouncey\Neo4j\OGM\Persister;
 
 use Laudis\Neo4j\Databags\Statement;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
-use GraphAware\Neo4j\OGM\Converters\Converter;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
+use Bouncey\Neo4j\OGM\Converters\Converter;
 use Laudis\Neo4j\ParameterHelper;
 use stdClass;
 

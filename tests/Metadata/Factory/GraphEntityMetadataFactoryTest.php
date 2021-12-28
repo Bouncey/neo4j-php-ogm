@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Metadata\Factory;
+namespace Bouncey\Neo4j\OGM\Tests\Metadata\Factory;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator;
-use GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Annotation\AnnotationGraphEntityMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Xml\IdXmlMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Xml\NodeEntityMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Xml\PropertyXmlMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Xml\RelationshipEntityMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Xml\RelationshipXmlMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Xml\XmlGraphEntityMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
-use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Movie;
-use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\MovieRepository;
-use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Person;
-use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Rating;
+use Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Annotation\AnnotationGraphEntityMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Xml\IdXmlMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Xml\NodeEntityMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Xml\PropertyXmlMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Xml\RelationshipEntityMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Xml\RelationshipXmlMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Xml\XmlGraphEntityMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Movie;
+use Bouncey\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\MovieRepository;
+use Bouncey\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Person;
+use Bouncey\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Rating;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -51,7 +51,7 @@ class GraphEntityMetadataFactoryTest extends TestCase
         $this->annotationMetadataFactory = new AnnotationGraphEntityMetadataFactory(new AnnotationReader());
         $this->xmlMetadataFactory = new XmlGraphEntityMetadataFactory(
             new SymfonyFileLocator(
-                [__DIR__.'/Fixtures/graphaware' => 'GraphAware\\Neo4j\\OGM\\Tests\\Metadata\\Factory\\Fixtures'],
+                [__DIR__.'/Fixtures/graphaware' => 'Bouncey\\Neo4j\\OGM\\Tests\\Metadata\\Factory\\Fixtures'],
                 '.ogm.xml'
             ),
             new NodeEntityMetadataFactory(

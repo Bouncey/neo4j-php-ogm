@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Hydrator;
+namespace Bouncey\Neo4j\OGM\Hydrator;
 
 use Laudis\Neo4j\Types\CypherMap;
 use Laudis\Neo4j\Types\Node;
 use Laudis\Neo4j\Types\Relationship;
-use GraphAware\Neo4j\OGM\Common\Collection;
-use GraphAware\Neo4j\OGM\Enum\Direction;
-use GraphAware\Neo4j\OGM\Converters\Converter;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
-use GraphAware\Neo4j\OGM\Util\DirectionUtils;
+use Bouncey\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Enum\Direction;
+use Bouncey\Neo4j\OGM\Converters\Converter;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Util\DirectionUtils;
 use Laudis\Neo4j\Databags\SummarizedResult;
 use Laudis\Neo4j\Types\CypherList;
 

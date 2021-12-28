@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * Class Rating.

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
 final class EntityIdMetadata
 {
@@ -24,14 +24,14 @@ final class EntityIdMetadata
     private $reflectionProperty;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\IdAnnotationMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\IdAnnotationMetadata
      */
     private $idAnnotationMetadata;
 
     /**
      * @param string                                              $propertyName
      * @param \ReflectionProperty                                 $reflectionProperty
-     * @param \GraphAware\Neo4j\OGM\Metadata\IdAnnotationMetadata $idAnnotationMetadata
+     * @param \Bouncey\Neo4j\OGM\Metadata\IdAnnotationMetadata $idAnnotationMetadata
      */
     public function __construct($propertyName, \ReflectionProperty $reflectionProperty, IdAnnotationMetadata $idAnnotationMetadata)
     {

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Community\Issue21;
+namespace Bouncey\Neo4j\OGM\Tests\Community\Issue21;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 /**
  * Class TestUser.

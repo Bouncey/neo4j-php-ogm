@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Xml;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Xml;
 
-use GraphAware\Neo4j\OGM\Annotations\Label;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Annotations\Label;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata;
 
 class PropertyXmlMetadataFactory
 {

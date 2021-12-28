@@ -45,7 +45,7 @@ or **XML** mapping files (XML mapping documentation can be found [here](xml-mapp
 
 namespace Movies;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="Person")
@@ -108,7 +108,7 @@ class Person
 
 ##### Node
 
-First off, you'll need to import the `GraphAware\Neo4j\OGM\Annotations` directory with the `use` statement.
+First off, you'll need to import the `Bouncey\Neo4j\OGM\Annotations` directory with the `use` statement.
 
 Secondly, you'll need to declare your model as a graph entity, by adding the `@OGM\Node()` annotation on the class.
 
@@ -136,10 +136,10 @@ Currently, the exact property name used in your domain model is used as property
 As of now, we are able to load / save `Person` entities to the database, as well as handling updates. Before we need to create
 the entity manager which will be the central point of operations.
 
-Creating the manager is just instantiating a new `GraphAware\Neo4j\OGM\EntityManager` object and passing your neo4j host url :
+Creating the manager is just instantiating a new `Bouncey\Neo4j\OGM\EntityManager` object and passing your neo4j host url :
 
 ```php
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 
 $manager = EntityManager::create('http://localhost:7474');
 ```
@@ -150,7 +150,7 @@ Finding nodes from the database is done via their repository, retrieving the cor
 entity class name to the `getRepository` method :
 
 ```php
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 use Movies\Person;
 
 $manager = EntityManager::create('http://localhost:7474');
@@ -161,7 +161,7 @@ $personRepository = $manager->getRepository(Person::class);
 Once you have the repository, you can retrieve node from the database, let's find `Tom Hanks` :
 
 ```php
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 use Movies\Person;
 
 $manager = EntityManager::create('http://localhost:7474');
@@ -227,7 +227,7 @@ For finishing this first part, let's create our Movie entity before opening the 
 
 namespace Movies;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="Movie")
@@ -335,7 +335,7 @@ Let's add the `ACTED_IN` relationship to our Person model, this will be a simple
 namespace Movies;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="Person")
@@ -451,7 +451,7 @@ this by adding the appropriate mapping to the Movie domain object class.
 namespace Movies;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="Movie")
@@ -557,7 +557,7 @@ and rating the movies he saw :
 
 namespace Movies;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="User")
@@ -612,7 +612,7 @@ This type of object is called a `RelationshipEntity`, let's create it :
 
 namespace Movies;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\RelationshipEntity(type="RATED")
@@ -762,10 +762,10 @@ Example :
 ```php
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Model;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="Movie")

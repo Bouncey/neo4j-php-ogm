@@ -1,13 +1,13 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Community;
+namespace Bouncey\Neo4j\OGM\Tests\Community;
 
-use GraphAware\Neo4j\OGM\Tests\Community\Issue21\TestUser;
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Community\Issue21\TestUser;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
 
 /**
  * Class ExportEntityToJsonTest
- * @package GraphAware\Neo4j\OGM\Tests\Community
+ * @package Bouncey\Neo4j\OGM\Tests\Community
  *
  * @group export
  */

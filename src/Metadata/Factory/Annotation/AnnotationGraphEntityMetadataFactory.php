@@ -9,28 +9,28 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Annotation;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Annotation;
 
 use Doctrine\Common\Annotations\Reader;
-use GraphAware\Neo4j\OGM\Annotations\Convert;
-use GraphAware\Neo4j\OGM\Annotations\Fetch;
-use GraphAware\Neo4j\OGM\Annotations\Label;
-use GraphAware\Neo4j\OGM\Annotations\Lazy;
-use GraphAware\Neo4j\OGM\Annotations\MappedResult;
-use GraphAware\Neo4j\OGM\Annotations\Node;
-use GraphAware\Neo4j\OGM\Annotations\OrderBy;
-use GraphAware\Neo4j\OGM\Annotations\QueryResult;
-use GraphAware\Neo4j\OGM\Annotations\Relationship;
-use GraphAware\Neo4j\OGM\Annotations\RelationshipEntity;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\EntityIdMetadata;
-use GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\Factory\GraphEntityMetadataFactoryInterface;
-use GraphAware\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\QueryResultMapper;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
-use GraphAware\Neo4j\OGM\Metadata\ResultField;
+use Bouncey\Neo4j\OGM\Annotations\Convert;
+use Bouncey\Neo4j\OGM\Annotations\Fetch;
+use Bouncey\Neo4j\OGM\Annotations\Label;
+use Bouncey\Neo4j\OGM\Annotations\Lazy;
+use Bouncey\Neo4j\OGM\Annotations\MappedResult;
+use Bouncey\Neo4j\OGM\Annotations\Node;
+use Bouncey\Neo4j\OGM\Annotations\OrderBy;
+use Bouncey\Neo4j\OGM\Annotations\QueryResult;
+use Bouncey\Neo4j\OGM\Annotations\Relationship;
+use Bouncey\Neo4j\OGM\Annotations\RelationshipEntity;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\EntityIdMetadata;
+use Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\Factory\GraphEntityMetadataFactoryInterface;
+use Bouncey\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\QueryResultMapper;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\Metadata\ResultField;
 
 class AnnotationGraphEntityMetadataFactory implements GraphEntityMetadataFactoryInterface
 {

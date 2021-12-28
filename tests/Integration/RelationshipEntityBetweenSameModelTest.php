@@ -1,14 +1,14 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Proxy\LazyCollection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Proxy\LazyCollection;
 
 /**
  * Class RelationshipEntityBetweenSameModelTest
- * @package GraphAware\Neo4j\OGM\Tests\Integration
+ * @package Bouncey\Neo4j\OGM\Tests\Integration
  *
  * @group re-common-model
  * @group issue-106
@@ -217,7 +217,7 @@ class SystemUser
 
 /**
  * Class Follow
- * @package GraphAware\Neo4j\OGM\Tests\Integration
+ * @package Bouncey\Neo4j\OGM\Tests\Integration
  *
  * @OGM\RelationshipEntity(type="FOLLOWS")
  */

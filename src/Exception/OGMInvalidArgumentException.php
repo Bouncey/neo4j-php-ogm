@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Exception;
+namespace Bouncey\Neo4j\OGM\Exception;
 
 /**
  * Contains exception messages for all invalid lifecycle state exceptions inside UnitOfWork.

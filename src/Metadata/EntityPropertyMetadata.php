@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
-use GraphAware\Neo4j\OGM\Annotations\Convert;
+use Bouncey\Neo4j\OGM\Annotations\Convert;
 
 class EntityPropertyMetadata
 {
@@ -26,7 +26,7 @@ class EntityPropertyMetadata
     private $reflectionProperty;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata
      */
     private $propertyAnnotationMetadata;
 

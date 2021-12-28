@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Converters;
+namespace Bouncey\Neo4j\OGM\Converters;
 
-use GraphAware\Neo4j\OGM\Exception\ConverterException;
+use Bouncey\Neo4j\OGM\Exception\ConverterException;
 
 class DateTimeConverter extends Converter
 {

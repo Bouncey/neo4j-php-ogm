@@ -1,9 +1,9 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Community\Issue103;
+namespace Bouncey\Neo4j\OGM\Tests\Community\Issue103;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="Context")

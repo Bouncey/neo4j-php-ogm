@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\NodePropertyKeyMapping\Employee;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\NodePropertyKeyMapping\Employee;
 
 class NodePropertyKeyMappingTest extends IntegrationTestCase
 {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
 class ResultField
 {
@@ -22,7 +22,7 @@ class ResultField
     protected $target;
 
     /**
-     * @var null|\GraphAware\Neo4j\OGM\Metadata\ClassMetadata
+     * @var null|\Bouncey\Neo4j\OGM\Metadata\ClassMetadata
      */
     protected $targetMetadata;
 
@@ -63,7 +63,7 @@ class ResultField
     }
 
     /**
-     * @param \GraphAware\Neo4j\OGM\Metadata\GraphEntityMetadata $metadata
+     * @param \Bouncey\Neo4j\OGM\Metadata\GraphEntityMetadata $metadata
      */
     public function setMetadata(GraphEntityMetadata $metadata)
     {
@@ -71,7 +71,7 @@ class ResultField
     }
 
     /**
-     * @return \GraphAware\Neo4j\OGM\Metadata\ClassMetadata|null
+     * @return \Bouncey\Neo4j\OGM\Metadata\ClassMetadata|null
      */
     public function getTargetMetadata()
     {

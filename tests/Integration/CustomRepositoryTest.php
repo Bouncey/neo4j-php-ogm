@@ -1,9 +1,9 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
-use GraphAware\Neo4j\OGM\Tests\Integration\Repository\MoviesCustomRepository;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
+use Bouncey\Neo4j\OGM\Tests\Integration\Repository\MoviesCustomRepository;
 
 /**
  *

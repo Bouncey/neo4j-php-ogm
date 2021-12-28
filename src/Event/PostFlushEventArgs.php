@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Event;
+namespace Bouncey\Neo4j\OGM\Event;
 
 use Doctrine\Common\EventArgs;
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 
 class PostFlushEventArgs extends EventArgs
 {

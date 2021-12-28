@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToManyRelationship\Group;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToManyRelationship\User;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToManyRelationship\Group;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToManyRelationship\User;
 
 /**
  * Class ManyToManyRelationshipTest.

@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Annotation;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Annotation;
 
 use Doctrine\Common\Annotations\Reader;
-use GraphAware\Neo4j\OGM\Annotations\Convert;
-use GraphAware\Neo4j\OGM\Annotations\EndNode;
-use GraphAware\Neo4j\OGM\Annotations\GraphId;
-use GraphAware\Neo4j\OGM\Annotations\Property;
-use GraphAware\Neo4j\OGM\Annotations\RelationshipEntity;
-use GraphAware\Neo4j\OGM\Annotations\StartNode;
-use GraphAware\Neo4j\OGM\Metadata\EntityIdMetadata;
-use GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\IdAnnotationMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
-use GraphAware\Neo4j\OGM\Util\ClassUtils;
+use Bouncey\Neo4j\OGM\Annotations\Convert;
+use Bouncey\Neo4j\OGM\Annotations\EndNode;
+use Bouncey\Neo4j\OGM\Annotations\GraphId;
+use Bouncey\Neo4j\OGM\Annotations\Property;
+use Bouncey\Neo4j\OGM\Annotations\RelationshipEntity;
+use Bouncey\Neo4j\OGM\Annotations\StartNode;
+use Bouncey\Neo4j\OGM\Metadata\EntityIdMetadata;
+use Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\IdAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Util\ClassUtils;
 
 final class RelationshipEntityMetadataFactory
 {

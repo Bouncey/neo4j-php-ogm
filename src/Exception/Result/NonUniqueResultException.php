@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Exception\Result;
+namespace Bouncey\Neo4j\OGM\Exception\Result;
 
-use GraphAware\Neo4j\OGM\Exception\Neo4jOGMException;
+use Bouncey\Neo4j\OGM\Exception\Neo4jOGMException;
 
 class NonUniqueResultException extends \RuntimeException implements Neo4jOGMException
 {

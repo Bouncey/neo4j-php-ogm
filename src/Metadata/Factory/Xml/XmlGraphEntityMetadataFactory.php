@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Xml;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Xml;
 
 use Doctrine\Common\Persistence\Mapping\Driver\FileLocator;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\Factory\GraphEntityMetadataFactoryInterface;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\Factory\GraphEntityMetadataFactoryInterface;
 
 class XmlGraphEntityMetadataFactory implements GraphEntityMetadataFactoryInterface
 {

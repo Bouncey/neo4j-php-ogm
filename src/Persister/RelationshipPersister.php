@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Persister;
+namespace Bouncey\Neo4j\OGM\Persister;
 
 use Laudis\Neo4j\Databags\Statement;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
 
 class RelationshipPersister
 {

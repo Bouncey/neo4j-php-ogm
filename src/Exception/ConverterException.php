@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Exception;
+namespace Bouncey\Neo4j\OGM\Exception;
 
 class ConverterException extends \RuntimeException implements Neo4jOGMException
 {

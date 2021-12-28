@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Proxy;
+namespace Bouncey\Neo4j\OGM\Tests\Proxy;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
 
 class SingleNodeInitializerTest extends IntegrationTestCase
 {

@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Repository;
+namespace Bouncey\Neo4j\OGM\Repository;
 
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\Selectable;
 use Doctrine\Common\Persistence\ObjectRepository;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
 
 class BaseRepository implements ObjectRepository, Selectable
 {
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\ClassMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\ClassMetadata
      */
     protected $classMetadata;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\EntityManager
+     * @var \Bouncey\Neo4j\OGM\EntityManager
      */
     protected $entityManager;
 

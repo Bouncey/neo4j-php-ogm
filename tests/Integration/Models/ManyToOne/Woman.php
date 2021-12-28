@@ -1,12 +1,12 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToOne;
-use GraphAware\Neo4j\OGM\Common\Collection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToOne;
+use Bouncey\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * Class Woman
- * @package GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToOne
+ * @package Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToOne
  *
  * @OGM\Node(label="Woman")
  */

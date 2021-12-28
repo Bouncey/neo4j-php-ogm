@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Proxy\EntityProxy;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Car;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\ModelNumber;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Person;
+use Bouncey\Neo4j\OGM\Proxy\EntityProxy;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Car;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\ModelNumber;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Person;
 
 /**
  * Class EntityWithSimpleRelationshipTest.

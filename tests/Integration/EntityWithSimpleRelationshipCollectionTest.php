@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipCollection\Building;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipCollection\Floor;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipCollection\Building;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipCollection\Floor;
 
 /**
  * Class EntityWithSimpleRelationshipCollectionTest.

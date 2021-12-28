@@ -1,10 +1,10 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Query;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Person;
+use Bouncey\Neo4j\OGM\Query;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Person;
 use Laudis\Neo4j\Types\CypherList;
 use Laudis\Neo4j\Types\CypherMap;
 

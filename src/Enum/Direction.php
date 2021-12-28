@@ -1,6 +1,6 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Enum;
+namespace Bouncey\Neo4j\OGM\Enum;
 
 final class Direction
 {

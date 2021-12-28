@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Xml;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Xml;
 
-use GraphAware\Neo4j\OGM\Annotations\OrderBy;
-use GraphAware\Neo4j\OGM\Annotations\Relationship;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\Annotations\OrderBy;
+use Bouncey\Neo4j\OGM\Annotations\Relationship;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
 
 class RelationshipXmlMetadataFactory
 {

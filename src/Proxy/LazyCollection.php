@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Proxy;
+namespace Bouncey\Neo4j\OGM\Proxy;
 
 use Doctrine\Common\Collections\AbstractLazyCollection;
 use Laudis\Neo4j\Types\Node;
-use GraphAware\Neo4j\OGM\Common\Collection;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
 
 class LazyCollection extends AbstractLazyCollection
 {

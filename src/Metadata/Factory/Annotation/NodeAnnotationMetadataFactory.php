@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Annotation;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Annotation;
 
 use Doctrine\Common\Annotations\Reader;
-use GraphAware\Neo4j\OGM\Annotations\Node;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\NodeAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Annotations\Node;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\NodeAnnotationMetadata;
 
 final class NodeAnnotationMetadataFactory
 {
@@ -34,7 +34,7 @@ final class NodeAnnotationMetadataFactory
     /**
      * @param string $nodeEntityClass
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\NodeAnnotationMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\NodeAnnotationMetadata
      */
     public function create($nodeEntityClass)
     {

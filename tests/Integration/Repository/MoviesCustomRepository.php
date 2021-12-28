@@ -1,9 +1,9 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Repository;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Repository;
 
-use GraphAware\Neo4j\OGM\Repository\BaseRepository;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
+use Bouncey\Neo4j\OGM\Repository\BaseRepository;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
 
 class MoviesCustomRepository extends BaseRepository
 {

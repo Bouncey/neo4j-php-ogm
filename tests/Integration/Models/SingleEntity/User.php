@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\SingleEntity;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\SingleEntity;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * @OGM\Node(label="User")

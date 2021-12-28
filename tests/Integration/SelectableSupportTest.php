@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\Base\User;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\Base\User;
 
 /**
  * @group selectable

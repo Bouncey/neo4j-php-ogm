@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipPropertyKeyMapping\Device;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipPropertyKeyMapping\Employee;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipPropertyKeyMapping\UsesDevice;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipPropertyKeyMapping\Device;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipPropertyKeyMapping\Employee;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipPropertyKeyMapping\UsesDevice;
 
 class RelationshipPropertyKeyMappingTest extends IntegrationTestCase
 {

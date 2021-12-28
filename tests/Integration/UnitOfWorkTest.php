@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Exception\OGMInvalidArgumentException;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\UnitOfWork\User;
+use Bouncey\Neo4j\OGM\Exception\OGMInvalidArgumentException;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\UnitOfWork\User;
 
 class UnitOfWorkTest extends IntegrationTestCase
 {

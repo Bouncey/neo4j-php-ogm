@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * Class Person.

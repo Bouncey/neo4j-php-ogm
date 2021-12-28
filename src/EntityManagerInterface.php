@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM;
+namespace Bouncey\Neo4j\OGM;
 
 use Doctrine\Common\EventManager;
 use Doctrine\Common\Persistence\ObjectManager;
-use GraphAware\Neo4j\OGM\Hydrator\EntityHydrator;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Persisters\BasicEntityPersister;
-use GraphAware\Neo4j\OGM\Proxy\ProxyFactory;
+use Bouncey\Neo4j\OGM\Hydrator\EntityHydrator;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Persisters\BasicEntityPersister;
+use Bouncey\Neo4j\OGM\Proxy\ProxyFactory;
+use Laudis\Neo4j\Contracts\ClientInterface;
 
 interface EntityManagerInterface extends ObjectManager
 {
@@ -35,26 +36,23 @@ interface EntityManagerInterface extends ObjectManager
     public function getEventManager();
 
     /**
-     * @return \GraphAware\Neo4j\OGM\UnitOfWork
+     * @return \Bouncey\Neo4j\OGM\UnitOfWork
      */
     public function getUnitOfWork();
 
-    /**
-     * @return \GraphAware\Neo4j\Client\Client
-     */
-    public function getDatabaseDriver();
+    public function getDatabaseDriver(): ClientInterface;
 
     /**
      * @param string $class
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\QueryResultMapper
+     * @return \Bouncey\Neo4j\OGM\Metadata\QueryResultMapper
      */
     public function getResultMappingMetadata($class);
 
     /**
      * @param $class
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata
      */
     public function getClassMetadataFor($class);
 
@@ -63,14 +61,14 @@ interface EntityManagerInterface extends ObjectManager
      *
      * @throws \Exception
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata
      */
     public function getRelationshipEntityMetadata($class);
 
     /**
      * @param string $class
      *
-     * @return \GraphAware\Neo4j\OGM\Repository\BaseRepository
+     * @return \Bouncey\Neo4j\OGM\Repository\BaseRepository
      */
     public function getRepository($class);
 

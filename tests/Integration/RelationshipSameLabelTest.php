@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Proxy\EntityProxy;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Building;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Room;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Equipment;
+use Bouncey\Neo4j\OGM\Proxy\EntityProxy;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Building;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Room;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Equipment;
 
 /**
  * Class RelationshipSameLabelTest.

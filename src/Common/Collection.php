@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Common;
+namespace Bouncey\Neo4j\OGM\Common;
 
 use Doctrine\Common\Collections\ArrayCollection;
 

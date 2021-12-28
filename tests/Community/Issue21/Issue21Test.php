@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Community\Issue21;
+namespace Bouncey\Neo4j\OGM\Tests\Community\Issue21;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
 
 /**
  * Class Issue21Test.

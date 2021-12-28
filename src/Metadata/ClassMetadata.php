@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
-use GraphAware\Neo4j\OGM\Annotations\Entity;
-use GraphAware\Neo4j\OGM\Annotations\Node;
-use GraphAware\Neo4j\OGM\Annotations\RelationshipEntity;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Annotations\Entity;
+use Bouncey\Neo4j\OGM\Annotations\Node;
+use Bouncey\Neo4j\OGM\Annotations\RelationshipEntity;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
 
 final class ClassMetadata
 {
     /**
-     * @var \GraphAware\Neo4j\OGM\Annotations\Entity|\GraphAware\Neo4j\OGM\Annotations\Node|\GraphAware\Neo4j\OGM\Annotations\RelationshipEntity
+     * @var \Bouncey\Neo4j\OGM\Annotations\Entity|\Bouncey\Neo4j\OGM\Annotations\Node|\Bouncey\Neo4j\OGM\Annotations\RelationshipEntity
      */
     protected $entityAnnotation;
 
     /**
-     * @param \GraphAware\Neo4j\OGM\Annotations\Entity $entityAnnotation
+     * @param \Bouncey\Neo4j\OGM\Annotations\Entity $entityAnnotation
      */
     public function __construct(Entity $entityAnnotation)
     {

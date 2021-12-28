@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Proxy;
+namespace Bouncey\Neo4j\OGM\Tests\Proxy;
 
-use GraphAware\Neo4j\OGM\Proxy\EntityProxy;
-use GraphAware\Neo4j\OGM\Proxy\ProxyFactory;
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
-use GraphAware\Neo4j\OGM\Tests\Proxy\Model\PHP7\User;
-use GraphAware\Neo4j\OGM\Tests\Util\NodeProxy;
+use Bouncey\Neo4j\OGM\Proxy\EntityProxy;
+use Bouncey\Neo4j\OGM\Proxy\ProxyFactory;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Proxy\Model\PHP7\User;
+use Bouncey\Neo4j\OGM\Tests\Util\NodeProxy;
 
 /**
  * Class ProxyFactoryTest.

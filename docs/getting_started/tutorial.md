@@ -78,7 +78,7 @@ of your entities and maps them from and back the database.
 // bootstrap.php
 <?php
 
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 
 require_once 'vendor/autoload.php';
 
@@ -166,7 +166,7 @@ database. Metadata for entities is defined using docblock annotations :
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 // src/Person.php
 
@@ -352,7 +352,7 @@ So far so good, let's continue by adding the `Movie` entity. The steps are the s
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
@@ -434,8 +434,8 @@ Let's add the `ACTED_IN` relationship between the person and the movie entities 
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 // src/Person.php
 
@@ -497,8 +497,8 @@ Let's do the same for the `Movie` entity :
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 /**
  *
@@ -870,8 +870,8 @@ Let's create the User entity :
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Common\Collection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
@@ -922,7 +922,7 @@ Create now the `Relationship Entity` itself :
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
@@ -984,8 +984,8 @@ The last step is to add the ratings on the movie entity as well :
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 /**
  *
@@ -1042,8 +1042,8 @@ Now let's add a useful method on the User entity that will represent adding a ne
 
 namespace Demo;
 
-use GraphAware\Neo4j\OGM\Common\Collection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
@@ -1322,7 +1322,7 @@ WHERE n.name CONTAINS "Tom"
 RETURN n, collect(other)[0..2] AS coactors, size((n)-[:ACTED_IN]->()) AS totalActs');
 $query
     ->addEntityMapping('n', \Demo\Person::class)
-    ->addEntityMapping('coactors', \Demo\Person::class, \GraphAware\Neo4j\OGM\Query::HYDRATE_COLLECTION);
+    ->addEntityMapping('coactors', \Demo\Person::class, \Bouncey\Neo4j\OGM\Query::HYDRATE_COLLECTION);
 
 $result = $query->execute();
 

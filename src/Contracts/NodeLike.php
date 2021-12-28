@@ -1,6 +1,6 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Contracts;
+namespace Bouncey\Neo4j\OGM\Contracts;
 
 use Laudis\Neo4j\Types\CypherList;
 use Laudis\Neo4j\Types\CypherMap;

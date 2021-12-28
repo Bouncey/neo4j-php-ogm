@@ -1,10 +1,10 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\Tree;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\Tree;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 /**
  *

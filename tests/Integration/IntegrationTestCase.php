@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
 use GraphAware\Neo4j\Client\Event\PreRunEvent;
 use GraphAware\Neo4j\Client\Neo4jClientEvents;
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 use Laudis\Neo4j\Client;
 use PHPUnit\Framework\TestCase;
 
