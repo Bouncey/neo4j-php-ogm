@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Converters;
+namespace Bouncey\Neo4j\OGM\Converters;
 
 abstract class Converter
 {

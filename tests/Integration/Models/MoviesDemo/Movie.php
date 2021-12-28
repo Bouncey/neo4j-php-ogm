@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 /**
  * Class Movie.
  *
- * @OGM\Node(label="Movie", repository="GraphAware\Neo4j\OGM\Tests\Integration\Repository\MoviesCustomRepository")
+ * @OGM\Node(label="Movie", repository="Bouncey\Neo4j\OGM\Tests\Integration\Repository\MoviesCustomRepository")
  */
 class Movie
 {

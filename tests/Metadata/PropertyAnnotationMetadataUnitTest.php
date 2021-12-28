@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Metadata;
+namespace Bouncey\Neo4j\OGM\Tests\Metadata;
 
-use GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata;
 use PHPUnit\Framework\TestCase;
 
 /**

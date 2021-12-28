@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Proxy\LazyCollection;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\OneToManyRE\Acquisition;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\OneToManyRE\House;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\OneToManyRE\Owner;
+use Bouncey\Neo4j\OGM\Proxy\LazyCollection;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\OneToManyRE\Acquisition;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\OneToManyRE\House;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\OneToManyRE\Owner;
 
 /**
  * Class OneToManyRelationshipEntityTest.

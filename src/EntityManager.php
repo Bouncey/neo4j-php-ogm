@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM;
+namespace Bouncey\Neo4j\OGM;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\FileCacheReader;
@@ -17,19 +17,19 @@ use Doctrine\Common\EventManager;
 use Laudis\Neo4j\ClientBuilder;
 use Laudis\Neo4j\Contracts\ClientInterface;
 use Laudis\Neo4j\Common\Uri;
-use GraphAware\Neo4j\OGM\Converters\Converter;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Hydrator\EntityHydrator;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Annotation\AnnotationGraphEntityMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\Factory\GraphEntityMetadataFactoryInterface;
-use GraphAware\Neo4j\OGM\Metadata\GraphEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\QueryResultMapper;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
-use GraphAware\Neo4j\OGM\Persisters\BasicEntityPersister;
-use GraphAware\Neo4j\OGM\Proxy\ProxyFactory;
-use GraphAware\Neo4j\OGM\Repository\BaseRepository;
-use GraphAware\Neo4j\OGM\Util\ClassUtils;
+use Bouncey\Neo4j\OGM\Converters\Converter;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Hydrator\EntityHydrator;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Annotation\AnnotationGraphEntityMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\Factory\GraphEntityMetadataFactoryInterface;
+use Bouncey\Neo4j\OGM\Metadata\GraphEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\QueryResultMapper;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Persisters\BasicEntityPersister;
+use Bouncey\Neo4j\OGM\Proxy\ProxyFactory;
+use Bouncey\Neo4j\OGM\Repository\BaseRepository;
+use Bouncey\Neo4j\OGM\Util\ClassUtils;
 use Laudis\Neo4j\Authentication\UrlAuth;
 
 class EntityManager implements EntityManagerInterface
@@ -260,10 +260,7 @@ class EntityManager implements EntityManagerInterface
         return $this->uow;
     }
 
-    /**
-     * @return \Laudis\Neo4j\Contracts\ClientInterface
-     */
-    public function getDatabaseDriver()
+    public function getDatabaseDriver(): ClientInterface
     {
         return $this->databaseDriver;
     }
@@ -286,7 +283,7 @@ class EntityManager implements EntityManagerInterface
     /**
      * @param $class
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata
      */
     public function getClassMetadataFor($class)
     {

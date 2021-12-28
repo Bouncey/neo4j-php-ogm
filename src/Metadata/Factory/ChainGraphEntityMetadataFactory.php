@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory;
 
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Exception\MetadataFactoryException;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Exception\MetadataFactoryException;
 
 class ChainGraphEntityMetadataFactory implements GraphEntityMetadataFactoryInterface
 {

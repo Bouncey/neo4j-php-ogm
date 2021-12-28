@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Util;
+namespace Bouncey\Neo4j\OGM\Tests\Util;
 
 class NodeProxy
 {

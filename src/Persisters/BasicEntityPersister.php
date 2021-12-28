@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Persisters;
+namespace Bouncey\Neo4j\OGM\Persisters;
 
 use Laudis\Neo4j\Databags\Statement;
 use Laudis\Neo4j\Databags\SummarizedResult;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
-use GraphAware\Neo4j\OGM\Util\DirectionUtils;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\Util\DirectionUtils;
 
 class BasicEntityPersister
 {

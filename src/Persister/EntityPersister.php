@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Persister;
+namespace Bouncey\Neo4j\OGM\Persister;
 
 use Laudis\Neo4j\Databags\Statement;
-use GraphAware\Neo4j\OGM\Converters\Converter;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Converters\Converter;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
 
 class EntityPersister
 {
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata
      */
     protected $classMetadata;
 

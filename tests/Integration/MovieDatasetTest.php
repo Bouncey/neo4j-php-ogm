@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Proxy\LazyCollection;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Person;
+use Bouncey\Neo4j\OGM\Proxy\LazyCollection;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Movie;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Person;
 
 /**
  * Class MovieDatasetTest.

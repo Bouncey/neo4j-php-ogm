@@ -1,9 +1,9 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
 use Laudis\Neo4j\Exception\Neo4jException;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Person;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\MoviesDemo\Person;
 
 /**
  *

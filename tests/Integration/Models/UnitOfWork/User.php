@@ -1,9 +1,9 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\UnitOfWork;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\UnitOfWork;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Common\Collection;
 
 /**
  *

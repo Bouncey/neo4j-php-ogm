@@ -1,13 +1,13 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToOne\Bag;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToOne\Woman;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToOne\Bag;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToOne\Woman;
 
 /**
  * Class ManyToOneSimpleRelationshipTest
- * @package GraphAware\Neo4j\OGM\Tests\Integration
+ * @package Bouncey\Neo4j\OGM\Tests\Integration
  *
  * @group many-to-one-simple
  * @group issue-126

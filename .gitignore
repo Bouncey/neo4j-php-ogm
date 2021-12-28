@@ -1,7 +1,8 @@
 _var/
 .DS_Store
 .php_cs.cache
-composer.lock
 phpunit.xml
 vendor/
 *.idea
+
+.phpunit.result.cache

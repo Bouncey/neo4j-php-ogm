@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\BooleanLabel\BlogPost;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\BooleanLabel\BlogPost;
 
 /**
  * Class BooleanLabelTest.

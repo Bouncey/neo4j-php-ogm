@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SingleEntity\User;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SingleEntity\User;
 
 /**
  * @group single-entity

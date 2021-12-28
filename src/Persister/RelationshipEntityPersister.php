@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Persister;
+namespace Bouncey\Neo4j\OGM\Persister;
 
 use Laudis\Neo4j\Databags\Statement;
-use GraphAware\Neo4j\OGM\Converters\Converter;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
-use GraphAware\Neo4j\OGM\Util\ClassUtils;
+use Bouncey\Neo4j\OGM\Converters\Converter;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Util\ClassUtils;
 
 class RelationshipEntityPersister
 {
@@ -24,7 +24,7 @@ class RelationshipEntityPersister
     protected $class;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata
      */
     protected $classMetadata;
 

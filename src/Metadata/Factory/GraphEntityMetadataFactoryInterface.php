@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory;
 
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\QueryResultMapper;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\QueryResultMapper;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
 
 interface GraphEntityMetadataFactoryInterface
 {

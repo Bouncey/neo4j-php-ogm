@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Annotation;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Annotation;
 
 use Doctrine\Common\Annotations\Reader;
-use GraphAware\Neo4j\OGM\Annotations\GraphId;
-use GraphAware\Neo4j\OGM\Metadata\IdAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Annotations\GraphId;
+use Bouncey\Neo4j\OGM\Metadata\IdAnnotationMetadata;
 
 class IdAnnotationMetadataFactory
 {

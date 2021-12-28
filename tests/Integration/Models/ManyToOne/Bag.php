@@ -1,12 +1,12 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToOne;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToOne;
 
-use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
 
 /**
  * Class Bag
- * @package GraphAware\Neo4j\OGM\Tests\Integration\Models\ManyToOne
+ * @package Bouncey\Neo4j\OGM\Tests\Integration\Models\ManyToOne
  *
  * @OGM\Node(label="Bag")
  */

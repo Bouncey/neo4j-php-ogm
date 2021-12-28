@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Community;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Community;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Car;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\ModelNumber;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Person;
-use GraphAware\Neo4j\OGM\UnitOfWork;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Car;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\ModelNumber;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\EntityWithSimpleRelationship\Person;
+use Bouncey\Neo4j\OGM\UnitOfWork;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>

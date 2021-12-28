@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
 final class GraphEntityPropertyMetadata
 {
@@ -24,7 +24,7 @@ final class GraphEntityPropertyMetadata
     private $reflectionProperty;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata
      */
     private $propertyAnnotationMetadata;
 
@@ -33,7 +33,7 @@ final class GraphEntityPropertyMetadata
      *
      * @param string                                                    $propertyName
      * @param \ReflectionProperty                                       $reflectionProperty
-     * @param \GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata $propertyAnnotationMetadata
+     * @param \Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata $propertyAnnotationMetadata
      */
     public function __construct($propertyName, \ReflectionProperty $reflectionProperty, PropertyAnnotationMetadata $propertyAnnotationMetadata)
     {
@@ -51,7 +51,7 @@ final class GraphEntityPropertyMetadata
     }
 
     /**
-     * @return \GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata
      */
     public function getPropertyAnnotationMetadata()
     {

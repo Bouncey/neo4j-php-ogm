@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
-use GraphAware\Neo4j\OGM\Util\ClassUtils;
+use Bouncey\Neo4j\OGM\Util\ClassUtils;
 
 final class NodeEntityMetadata extends GraphEntityMetadata
 {
@@ -25,7 +25,7 @@ final class NodeEntityMetadata extends GraphEntityMetadata
      */
     protected $relationships = [];
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\NodeAnnotationMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\NodeAnnotationMetadata
      */
     private $nodeAnnotationMetadata;
 
@@ -39,8 +39,8 @@ final class NodeEntityMetadata extends GraphEntityMetadata
      *
      * @param string                                                $className
      * @param \ReflectionClass                                      $reflectionClass
-     * @param \GraphAware\Neo4j\OGM\Metadata\NodeAnnotationMetadata $nodeAnnotationMetadata
-     * @param \GraphAware\Neo4j\OGM\Metadata\EntityIdMetadata       $entityIdMetadata
+     * @param \Bouncey\Neo4j\OGM\Metadata\NodeAnnotationMetadata $nodeAnnotationMetadata
+     * @param \Bouncey\Neo4j\OGM\Metadata\EntityIdMetadata       $entityIdMetadata
      * @param array                                                 $entityPropertiesMetadata
      * @param RelationshipMetadata[]                                $simpleRelationshipsMetadata
      */
@@ -76,7 +76,7 @@ final class NodeEntityMetadata extends GraphEntityMetadata
     /**
      * @param $key
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\LabeledPropertyMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\LabeledPropertyMetadata
      */
     public function getLabeledProperty($key)
     {
@@ -86,7 +86,7 @@ final class NodeEntityMetadata extends GraphEntityMetadata
     }
 
     /**
-     * @return \GraphAware\Neo4j\OGM\Metadata\LabeledPropertyMetadata[]
+     * @return \Bouncey\Neo4j\OGM\Metadata\LabeledPropertyMetadata[]
      */
     public function getLabeledProperties()
     {
@@ -126,7 +126,7 @@ final class NodeEntityMetadata extends GraphEntityMetadata
     }
 
     /**
-     * @return \GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata[]
+     * @return \Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata[]
      */
     public function getRelationships()
     {
@@ -191,7 +191,7 @@ final class NodeEntityMetadata extends GraphEntityMetadata
     /**
      * @param $key
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata
+     * @return \Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata
      */
     public function getRelationship($key)
     {

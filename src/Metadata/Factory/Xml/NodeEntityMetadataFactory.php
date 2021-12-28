@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Xml;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Xml;
 
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Metadata\NodeAnnotationMetadata;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Metadata\NodeAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
 
 class NodeEntityMetadataFactory
 {

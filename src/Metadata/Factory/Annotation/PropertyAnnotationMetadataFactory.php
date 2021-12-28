@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata\Factory\Annotation;
+namespace Bouncey\Neo4j\OGM\Metadata\Factory\Annotation;
 
 use Doctrine\Common\Annotations\Reader;
-use GraphAware\Neo4j\OGM\Annotations\Property;
-use GraphAware\Neo4j\OGM\Metadata\PropertyAnnotationMetadata;
+use Bouncey\Neo4j\OGM\Annotations\Property;
+use Bouncey\Neo4j\OGM\Metadata\PropertyAnnotationMetadata;
 
 final class PropertyAnnotationMetadataFactory
 {

@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Metadata;
+namespace Bouncey\Neo4j\OGM\Tests\Metadata;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\FileCacheReader;
-use GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata;
-use GraphAware\Neo4j\OGM\Metadata\Factory\Annotation\AnnotationGraphEntityMetadataFactory;
-use GraphAware\Neo4j\OGM\Metadata\GraphEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Person;
+use Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata;
+use Bouncey\Neo4j\OGM\Metadata\Factory\Annotation\AnnotationGraphEntityMetadataFactory;
+use Bouncey\Neo4j\OGM\Metadata\GraphEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Person;
 use PHPUnit\Framework\TestCase;
 
 /**

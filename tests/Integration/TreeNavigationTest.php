@@ -1,7 +1,7 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\Tree\Level;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\Tree\Level;
 
 /**
  *

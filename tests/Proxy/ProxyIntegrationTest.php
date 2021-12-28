@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Proxy;
+namespace Bouncey\Neo4j\OGM\Tests\Proxy;
 
-use GraphAware\Neo4j\OGM\Proxy\EntityProxy;
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
-use GraphAware\Neo4j\OGM\Tests\Proxy\Model\Group;
-use GraphAware\Neo4j\OGM\Tests\Proxy\Model\User;
+use Bouncey\Neo4j\OGM\Proxy\EntityProxy;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Proxy\Model\Group;
+use Bouncey\Neo4j\OGM\Tests\Proxy\Model\User;
 
 /**
  * Class ProxyIntegrationTest.

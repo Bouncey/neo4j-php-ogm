@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
 use GraphAware\Neo4j\Client\Event\PreRunEvent;
 use GraphAware\Neo4j\Client\Neo4jClientEvents;
-use GraphAware\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\EntityManager;
 use Laudis\Neo4j\Client;
 use PHPUnit\Framework\TestCase;
 
@@ -599,7 +599,7 @@ MATCH (a)-[:ACTED_IN]->(m)<-[:DIRECTED]-(d) RETURN a,m,d LIMIT 10
             ) : 'http://localhost:7474';
 
           $this->em = EntityManager::create(
-            'bolt://neo4j:test@neo4j',
+            'http://neo4j:test@localhost:7474',
             __DIR__.'/../../_var/cache'
         );
     }

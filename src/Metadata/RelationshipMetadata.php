@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
 use Doctrine\Common\Collections\AbstractLazyCollection;
 use Doctrine\Common\Collections\ArrayCollection;
-use GraphAware\Neo4j\OGM\Annotations\OrderBy;
-use GraphAware\Neo4j\OGM\Annotations\Relationship;
-use GraphAware\Neo4j\OGM\Common\Collection;
-use GraphAware\Neo4j\OGM\Exception\MappingException;
-use GraphAware\Neo4j\OGM\Proxy\LazyCollection;
-use GraphAware\Neo4j\OGM\Util\ClassUtils;
+use Bouncey\Neo4j\OGM\Annotations\OrderBy;
+use Bouncey\Neo4j\OGM\Annotations\Relationship;
+use Bouncey\Neo4j\OGM\Common\Collection;
+use Bouncey\Neo4j\OGM\Exception\MappingException;
+use Bouncey\Neo4j\OGM\Proxy\LazyCollection;
+use Bouncey\Neo4j\OGM\Util\ClassUtils;
 
 final class RelationshipMetadata
 {
@@ -38,7 +38,7 @@ final class RelationshipMetadata
     private $reflectionProperty;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\Annotations\Relationship
+     * @var \Bouncey\Neo4j\OGM\Annotations\Relationship
      */
     private $relationshipAnnotation;
 
@@ -60,7 +60,7 @@ final class RelationshipMetadata
     /**
      * @param string                                         $className
      * @param \ReflectionProperty                            $reflectionProperty
-     * @param \GraphAware\Neo4j\OGM\Annotations\Relationship $relationshipAnnotation
+     * @param \Bouncey\Neo4j\OGM\Annotations\Relationship $relationshipAnnotation
      * @param bool                                           $isLazy
      * @param OrderBy                                        $orderBy
      * @param mixed                                          $isFetch

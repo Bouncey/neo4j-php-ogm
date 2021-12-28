@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM;
+namespace Bouncey\Neo4j\OGM;
 
 use Doctrine\Common\Collections\AbstractLazyCollection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Laudis\Neo4j\Types\Node;
 use Laudis\Neo4j\Types\Relationship;
-use GraphAware\Neo4j\OGM\Exception\OGMInvalidArgumentException;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
-use GraphAware\Neo4j\OGM\Persister\EntityPersister;
-use GraphAware\Neo4j\OGM\Persister\FlushOperationProcessor;
-use GraphAware\Neo4j\OGM\Persister\RelationshipEntityPersister;
-use GraphAware\Neo4j\OGM\Persister\RelationshipPersister;
-use GraphAware\Neo4j\OGM\Proxy\LazyCollection;
+use Bouncey\Neo4j\OGM\Exception\OGMInvalidArgumentException;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\Persister\EntityPersister;
+use Bouncey\Neo4j\OGM\Persister\FlushOperationProcessor;
+use Bouncey\Neo4j\OGM\Persister\RelationshipEntityPersister;
+use Bouncey\Neo4j\OGM\Persister\RelationshipPersister;
+use Bouncey\Neo4j\OGM\Proxy\LazyCollection;
 
 /**
  * @author Christophe Willemsen <christophe@graphaware.com>
@@ -601,7 +601,7 @@ class UnitOfWork
     /**
      * @param $class
      *
-     * @return \GraphAware\Neo4j\OGM\Persister\RelationshipEntityPersister
+     * @return \Bouncey\Neo4j\OGM\Persister\RelationshipEntityPersister
      */
     public function getRelationshipEntityPersister($class)
     {

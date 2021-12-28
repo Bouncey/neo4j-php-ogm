@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration;
+namespace Bouncey\Neo4j\OGM\Tests\Integration;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Guest;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Hotel;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Rating;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Guest;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Hotel;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Rating;
 
 /**
  * Class SimpleRelationshipEntityTest.

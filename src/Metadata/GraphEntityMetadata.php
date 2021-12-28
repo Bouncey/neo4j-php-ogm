@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 
 abstract class GraphEntityMetadata implements ClassMetadata
 {
     /**
-     * @var \GraphAware\Neo4j\OGM\Metadata\EntityIdMetadata
+     * @var \Bouncey\Neo4j\OGM\Metadata\EntityIdMetadata
      */
     protected $entityIdMetadata;
 
@@ -38,7 +38,7 @@ abstract class GraphEntityMetadata implements ClassMetadata
     /**
      * GraphEntityMetadata constructor.
      *
-     * @param \GraphAware\Neo4j\OGM\Metadata\EntityIdMetadata $entityIdMetadata
+     * @param \Bouncey\Neo4j\OGM\Metadata\EntityIdMetadata $entityIdMetadata
      * @param string                                          $className
      * @param \ReflectionClass                                $reflectionClass
      * @param $entityPropertiesMetadata
@@ -152,7 +152,7 @@ abstract class GraphEntityMetadata implements ClassMetadata
     }
 
     /**
-     * @return \GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata[]
+     * @return \Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata[]
      */
     public function getPropertiesMetadata()
     {
@@ -162,7 +162,7 @@ abstract class GraphEntityMetadata implements ClassMetadata
     /**
      * @param $key
      *
-     * @return \GraphAware\Neo4j\OGM\Metadata\EntityPropertyMetadata|null
+     * @return \Bouncey\Neo4j\OGM\Metadata\EntityPropertyMetadata|null
      */
     public function getPropertyMetadata($key)
     {

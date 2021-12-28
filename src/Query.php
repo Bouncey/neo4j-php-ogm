@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM;
+namespace Bouncey\Neo4j\OGM;
 
-use GraphAware\Neo4j\OGM\Exception\Result\NonUniqueResultException;
-use GraphAware\Neo4j\OGM\Exception\Result\NoResultException;
+use Bouncey\Neo4j\OGM\Exception\Result\NonUniqueResultException;
+use Bouncey\Neo4j\OGM\Exception\Result\NoResultException;
 use Laudis\Neo4j\Databags\SummarizedResult;
 use Laudis\Neo4j\Types\CypherMap;
 

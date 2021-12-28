@@ -1,12 +1,12 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Integration\Convert;
+namespace Bouncey\Neo4j\OGM\Tests\Integration\Convert;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
-use GraphAware\Neo4j\OGM\Annotations as OGM;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Guest;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Hotel;
-use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Rating;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Annotations as OGM;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Guest;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Hotel;
+use Bouncey\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Rating;
 
 /**
  *
@@ -111,7 +111,7 @@ class TimestampConverterIntegrationTest extends IntegrationTestCase
 
 /**
  * Class TimestampConverterEntity
- * @package GraphAware\Neo4j\OGM\Tests\Integration\Convert
+ * @package Bouncey\Neo4j\OGM\Tests\Integration\Convert
  *
  * @OGM\Node(label="Entity")
  */

@@ -1,8 +1,8 @@
 <?php
 
-namespace GraphAware\Neo4j\OGM\Tests\Community\Issue103;
+namespace Bouncey\Neo4j\OGM\Tests\Community\Issue103;
 
-use GraphAware\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
+use Bouncey\Neo4j\OGM\Tests\Integration\IntegrationTestCase;
 
 /**
  *

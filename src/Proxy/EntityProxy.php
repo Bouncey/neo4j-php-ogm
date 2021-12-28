@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Proxy;
+namespace Bouncey\Neo4j\OGM\Proxy;
 
 interface EntityProxy
 {

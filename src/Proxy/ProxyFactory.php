@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Proxy;
+namespace Bouncey\Neo4j\OGM\Proxy;
 
-use GraphAware\Neo4j\OGM\Contracts\NodeLike;
+use Bouncey\Neo4j\OGM\Contracts\NodeLike;
 use Laudis\Neo4j\Types\Node;
-use GraphAware\Neo4j\OGM\EntityManager;
-use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
-use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
+use Bouncey\Neo4j\OGM\EntityManager;
+use Bouncey\Neo4j\OGM\Metadata\NodeEntityMetadata;
+use Bouncey\Neo4j\OGM\Metadata\RelationshipMetadata;
 
 class ProxyFactory
 {
@@ -95,7 +95,7 @@ class ProxyFactory
         $content = <<<PROXY
 <?php
 
-use GraphAware\\Neo4j\\OGM\\Proxy\\EntityProxy;
+use Bouncey\\Neo4j\\OGM\\Proxy\\EntityProxy;
 
 class $proxyClass extends $class implements EntityProxy
 {

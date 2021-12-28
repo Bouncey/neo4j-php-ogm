@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
-use GraphAware\Neo4j\OGM\Annotations\Label;
+use Bouncey\Neo4j\OGM\Annotations\Label;
 
 final class LabeledPropertyMetadata
 {
@@ -26,7 +26,7 @@ final class LabeledPropertyMetadata
     private $reflectionProperty;
 
     /**
-     * @var \GraphAware\Neo4j\OGM\Annotations\Label
+     * @var \Bouncey\Neo4j\OGM\Annotations\Label
      */
     private $annotation;
 
@@ -38,7 +38,7 @@ final class LabeledPropertyMetadata
     /**
      * @param string                                  $propertyName
      * @param \ReflectionProperty                     $reflectionProperty
-     * @param \GraphAware\Neo4j\OGM\Annotations\Label $annotation
+     * @param \Bouncey\Neo4j\OGM\Annotations\Label $annotation
      */
     public function __construct($propertyName, \ReflectionProperty $reflectionProperty, Label $annotation)
     {

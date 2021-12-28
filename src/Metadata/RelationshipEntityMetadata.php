@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\OGM\Metadata;
+namespace Bouncey\Neo4j\OGM\Metadata;
 
-use GraphAware\Neo4j\OGM\Annotations\RelationshipEntity;
+use Bouncey\Neo4j\OGM\Annotations\RelationshipEntity;
 
 final class RelationshipEntityMetadata extends GraphEntityMetadata
 {
@@ -35,8 +35,8 @@ final class RelationshipEntityMetadata extends GraphEntityMetadata
      *
      * @param string                                               $class
      * @param \ReflectionClass                                     $reflectionClass
-     * @param \GraphAware\Neo4j\OGM\Annotations\RelationshipEntity $annotation
-     * @param \GraphAware\Neo4j\OGM\Metadata\EntityIdMetadata      $entityIdMetadata
+     * @param \Bouncey\Neo4j\OGM\Annotations\RelationshipEntity $annotation
+     * @param \Bouncey\Neo4j\OGM\Metadata\EntityIdMetadata      $entityIdMetadata
      * @param string                                               $startNodeClass
      * @param string                                               $endNodeClass
      * @param array                                                $entityPropertiesMetadata
