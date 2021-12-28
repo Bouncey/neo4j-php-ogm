@@ -15,7 +15,7 @@ use GraphAware\Neo4j\OGM\Tests\Integration\Models\Tree\Level;
  */
 class QueryTest extends IntegrationTestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->clearDb();
@@ -24,7 +24,7 @@ class QueryTest extends IntegrationTestCase
 
     public function testCreateQueryReturnsPlainCollectionEntities()
     {
-        $q = $this->em->createQuery('MATCH (n:Level) WHERE n.code = {code} MATCH (n)-[:PARENT_LEVEL*0..]->(level) RETURN level');
+        $q = $this->em->createQuery('MATCH (n:Level) WHERE n.code = $code MATCH (n)-[:PARENT_LEVEL*0..]->(level) RETURN level');
         $q->addEntityMapping('level', Level::class);
         $q->setParameter('code', 'l3a');
 
@@ -51,7 +51,7 @@ class QueryTest extends IntegrationTestCase
         $this->assertCount(4, $result);
 
         foreach ($result as $row) {
-            $this->assertInternalType('array', $row);
+            $this->assertIsArray($row);
             $this->assertArrayHasKey('root', $row);
             $this->assertArrayHasKey('level', $row);
         }
@@ -62,7 +62,7 @@ class QueryTest extends IntegrationTestCase
         $q = $this->em->createQuery('MATCH (level:Level) RETURN level');
         $q->addEntityMapping('level', Level::class);
 
-        $this->setExpectedException(NonUniqueResultException::class);
+        $this->expectException(NonUniqueResultException::class);
         $result = $q->getOneResult();
     }
 
@@ -71,7 +71,7 @@ class QueryTest extends IntegrationTestCase
         $q = $this->em->createQuery('MATCH (level:Level) RETURN level');
         $q->addEntityMapping('level', Level::class);
 
-        $this->setExpectedException(NonUniqueResultException::class);
+        $this->expectException(NonUniqueResultException::class); 
         $result = $q->getOneOrNullResult();
     }
 
@@ -94,7 +94,7 @@ class QueryTest extends IntegrationTestCase
         $result = $q->getOneResult();
 
         $this->assertInstanceOf(Level::class, $result['root']);
-        $this->assertInternalType('array', $result['children']);
+        $this->assertIsArray($result['children']);
 
         foreach ($result['children'] as $o) {
             $this->assertInstanceOf(Level::class, $o);
@@ -119,7 +119,7 @@ class QueryTest extends IntegrationTestCase
         $this->clearDb();
         $this->playMovies();
 
-        $q = $this->em->createQuery('MATCH (n:Person) WHERE n.name = {name} 
+        $q = $this->em->createQuery('MATCH (n:Person) WHERE n.name = $name 
         MATCH (n)-[:ACTED_IN]->(movie)<-[:ACTED_IN]-(coactor) 
         RETURN n, movie, coactor');
 

@@ -11,7 +11,7 @@
 
 namespace GraphAware\Neo4j\OGM\Proxy;
 
-use GraphAware\Common\Type\Node;
+use Laudis\Neo4j\Types\Node;
 
 class RelationshipEntityInitializer extends SingleNodeInitializer
 {

@@ -11,7 +11,8 @@
 
 namespace GraphAware\Neo4j\OGM\Proxy;
 
-use GraphAware\Common\Type\Node;
+use GraphAware\Neo4j\OGM\Contracts\NodeLike;
+use Laudis\Neo4j\Types\Node;
 use GraphAware\Neo4j\OGM\EntityManager;
 use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
 use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
@@ -31,7 +32,10 @@ class ProxyFactory
         $this->proxyDir = $em->getProxyDirectory();
     }
 
-    public function fromNode(Node $node, array $mappedByProperties = [])
+    /**
+     * @param Node|NodeLike $node
+     */
+    public function fromNode($node, array $mappedByProperties = [])
     {
         $object = $this->createProxy();
         $object->__setNode($node);

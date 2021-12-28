@@ -22,7 +22,7 @@ use GraphAware\Neo4j\OGM\Tests\Integration\Models\SimpleRelationshipEntity\Ratin
  */
 class SimpleRelationshipEntityTest extends IntegrationTestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->clearDb();
@@ -97,6 +97,7 @@ class SimpleRelationshipEntityTest extends IntegrationTestCase
         $john = $this->em->getRepository(Guest::class)->findOneBy(['name' => 'john']);
         /** @var Hotel $crowne */
         $crowne = $this->em->getRepository(Hotel::class)->findOneBy(['name' => 'Crowne']);
+
         $this->assertSame(spl_object_hash($john), spl_object_hash($crowne->getRating()->getGuest()));
         $this->em->remove($crowne->getRating());
         $john->setRating(null);

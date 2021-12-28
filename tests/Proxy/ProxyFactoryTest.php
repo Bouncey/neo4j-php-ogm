@@ -65,7 +65,7 @@ class ProxyFactoryTest extends IntegrationTestCase
     {
         $cm = $this->em->getClassMetadata(User::class);
         $factory = new ProxyFactory($this->em, $cm);
-        $id = $this->client->run('CREATE (u:User {login:"Ale"})-[:HAS_PROFILE]->(:Profile {email:"php@graphaware.com"}) RETURN id(u) AS id')->firstRecord()->get('id');
+        $id = $this->client->run('CREATE (u:User {login:"Ale"})-[:HAS_PROFILE]->(:Profile {email:"php@graphaware.com"}) RETURN id(u) AS id')->first()->get('id');
         $o = $factory->fromNode(new NodeProxy($id));
 
         $this->assertInstanceOf(User::class, $o);
@@ -74,6 +74,6 @@ class ProxyFactoryTest extends IntegrationTestCase
 
     private function createSmallGraph()
     {
-        return $this->client->run('CREATE (n:Init {name:"Ale"})-[:RELATES]->(n2:Related {name:"Chris"}), (n)-[:HAS_PROFILE]->(:Profile {email:"php@graphaware.com"}) RETURN id(n) AS id')->firstRecord()->get('id');
+        return $this->client->run('CREATE (n:Init {name:"Ale"})-[:RELATES]->(n2:Related {name:"Chris"}), (n)-[:HAS_PROFILE]->(:Profile {email:"php@graphaware.com"}) RETURN id(n) AS id')->first()->get('id');
     }
 }

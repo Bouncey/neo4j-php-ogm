@@ -14,8 +14,9 @@ namespace GraphAware\Neo4j\OGM;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\FileCacheReader;
 use Doctrine\Common\EventManager;
-use GraphAware\Neo4j\Client\ClientBuilder;
-use GraphAware\Neo4j\Client\ClientInterface;
+use Laudis\Neo4j\ClientBuilder;
+use Laudis\Neo4j\Contracts\ClientInterface;
+use Laudis\Neo4j\Common\Uri;
 use GraphAware\Neo4j\OGM\Converters\Converter;
 use GraphAware\Neo4j\OGM\Exception\MappingException;
 use GraphAware\Neo4j\OGM\Hydrator\EntityHydrator;
@@ -29,6 +30,7 @@ use GraphAware\Neo4j\OGM\Persisters\BasicEntityPersister;
 use GraphAware\Neo4j\OGM\Proxy\ProxyFactory;
 use GraphAware\Neo4j\OGM\Repository\BaseRepository;
 use GraphAware\Neo4j\OGM\Util\ClassUtils;
+use Laudis\Neo4j\Authentication\UrlAuth;
 
 class EntityManager implements EntityManagerInterface
 {
@@ -121,8 +123,18 @@ class EntityManager implements EntityManagerInterface
     public static function create($host, $cacheDir = null, EventManager $eventManager = null)
     {
         $cache = $cacheDir ?: sys_get_temp_dir();
+        $uri = Uri::create($host);
+        $url = $uri->__toString();
+
+        if ($uri->getUserInfo()) {
+            $auth = (new UrlAuth())->extractFromUri($uri);
+        } else {
+            $auth = null;
+        }
+
         $client = ClientBuilder::create()
-            ->addConnection('default', $host)
+            ->withDriver($uri->getScheme(), $url, $auth)
+            ->withDefaultDriver($uri->getScheme())
             ->build();
 
         return new self($client, $cache, $eventManager);
@@ -214,8 +226,8 @@ class EntityManager implements EntityManagerInterface
     public function contains($entity)
     {
         return $this->uow->isScheduledForCreate($entity)
-        || $this->uow->isManaged($entity)
-        && !$this->uow->isScheduledForDelete($entity);
+            || $this->uow->isManaged($entity)
+            && !$this->uow->isScheduledForDelete($entity);
     }
 
     /**
@@ -249,7 +261,7 @@ class EntityManager implements EntityManagerInterface
     }
 
     /**
-     * @return \GraphAware\Neo4j\Client\ClientInterface
+     * @return \Laudis\Neo4j\Contracts\ClientInterface
      */
     public function getDatabaseDriver()
     {

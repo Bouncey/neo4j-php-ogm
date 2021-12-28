@@ -786,7 +786,7 @@ Person not found
 Using the force method will result in the following Cypher query : 
 
 ```
-MATCH (n) WHERE id(n) = {id} DETACH DELETE n
+MATCH (n) WHERE id(n) = $id DETACH DELETE n
 ```
 
 

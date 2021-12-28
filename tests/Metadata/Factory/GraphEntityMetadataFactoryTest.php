@@ -27,13 +27,14 @@ use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Movie;
 use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\MovieRepository;
 use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Person;
 use GraphAware\Neo4j\OGM\Tests\Metadata\Factory\Fixtures\Rating;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class GraphEntityMetadataFactoryTest.
  *
  * @group xml-mapping
  */
-class GraphEntityMetadataFactoryTest extends \PHPUnit_Framework_TestCase
+class GraphEntityMetadataFactoryTest extends TestCase
 {
     /**
      * @var AnnotationGraphEntityMetadataFactory
@@ -45,7 +46,7 @@ class GraphEntityMetadataFactoryTest extends \PHPUnit_Framework_TestCase
      */
     private $xmlMetadataFactory;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->annotationMetadataFactory = new AnnotationGraphEntityMetadataFactory(new AnnotationReader());
         $this->xmlMetadataFactory = new XmlGraphEntityMetadataFactory(
@@ -60,6 +61,7 @@ class GraphEntityMetadataFactoryTest extends \PHPUnit_Framework_TestCase
             ),
             new RelationshipEntityMetadataFactory(new PropertyXmlMetadataFactory(), new IdXmlMetadataFactory())
         );
+        parent::setUp();
     }
 
     public function testMovieMetadata()
@@ -84,7 +86,7 @@ class GraphEntityMetadataFactoryTest extends \PHPUnit_Framework_TestCase
         $createdMetadata = $personMetadata->getPropertyMetadata('created');
         $this->assertTrue($createdMetadata->hasConverter());
         $this->assertEquals('datetime', $createdMetadata->getConverterType());
-        $this->assertInternalType('array', $createdMetadata->getConverterOptions());
+        $this->assertIsArray($createdMetadata->getConverterOptions());
         $this->assertArrayHasKey('db_format', $createdMetadata->getConverterOptions());
     }
 
@@ -112,6 +114,7 @@ class GraphEntityMetadataFactoryTest extends \PHPUnit_Framework_TestCase
             }
         }
         libxml_use_internal_errors($previous);
+        $this->assertTrue(true);
     }
 
     /**

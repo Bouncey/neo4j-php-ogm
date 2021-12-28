@@ -11,7 +11,7 @@
 
 namespace GraphAware\Neo4j\OGM\Persister;
 
-use GraphAware\Common\Cypher\Statement;
+use Laudis\Neo4j\Databags\Statement;
 use GraphAware\Neo4j\OGM\Converters\Converter;
 use GraphAware\Neo4j\OGM\EntityManager;
 use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
@@ -79,12 +79,12 @@ class RelationshipEntityPersister
             }
         }
 
-        $query = 'MATCH (a), (b) WHERE id(a) = {a} AND id(b) = {b}'.PHP_EOL;
+        $query = 'MATCH (a), (b) WHERE id(a) = $a AND id(b) = $b'.PHP_EOL;
         $query .= sprintf('CREATE (a)-[r:%s]->(b)', $relType).PHP_EOL;
         if (!empty($parameters['fields'])) {
-            $query .= 'SET r += {fields} ';
+            $query .= 'SET r += $fields ';
         }
-        $query .= 'RETURN id(r) AS id, {oid} AS oid';
+        $query .= 'RETURN id(r) AS id, $oid AS oid';
         $parameters['oid'] = spl_object_hash($entity);
 
         return Statement::create($query, $parameters);
@@ -94,7 +94,7 @@ class RelationshipEntityPersister
     {
         $id = $this->classMetadata->getIdValue($entity);
 
-        $query = sprintf('MATCH ()-[rel]->() WHERE id(rel) = %d SET rel += {fields}', $id);
+        $query = sprintf('MATCH ()-[rel]->() WHERE id(rel) = %d SET rel += $fields', $id);
 
         $parameters = [
             'fields' => [],
@@ -123,7 +123,7 @@ class RelationshipEntityPersister
     public function getDeleteQuery($entity)
     {
         $id = $this->classMetadata->getIdValue($entity);
-        $query = 'START rel=rel('.$id.') DELETE rel RETURN {oid} AS oid';
+        $query = 'MATCH ()-[rel]->() WHERE id(rel) = '.$id.' DELETE rel RETURN $oid AS oid';
         $params = ['oid' => spl_object_hash($entity)];
 
         return Statement::create($query, $params);

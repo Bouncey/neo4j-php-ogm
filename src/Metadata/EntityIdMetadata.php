@@ -49,7 +49,12 @@ final class EntityIdMetadata
     {
         $this->reflectionProperty->setAccessible(true);
 
-        return $this->reflectionProperty->getValue($object);
+        $isSet = $this->reflectionProperty->isInitialized($object);
+
+        if ($isSet) {
+            return $this->reflectionProperty->getValue($object);
+        }
+        return null;
     }
 
     /**

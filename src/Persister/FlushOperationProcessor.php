@@ -11,10 +11,12 @@
 
 namespace GraphAware\Neo4j\OGM\Persister;
 
-use GraphAware\Neo4j\Client\Stack;
+use Laudis\Neo4j\Databags\Statement;
 use GraphAware\Neo4j\OGM\EntityManager;
 use GraphAware\Neo4j\OGM\Metadata\LabeledPropertyMetadata;
 use GraphAware\Neo4j\OGM\Converters\Converter;
+use Laudis\Neo4j\ParameterHelper;
+use stdClass;
 
 class FlushOperationProcessor
 {
@@ -38,14 +40,16 @@ class FlushOperationProcessor
         return $this->createLabeledNodesCreationStack($byLabelsMap);
     }
 
-    private function createLabeledNodesCreationStack(array $byLabelsMap)
+    /**
+     * @return Statement[]
+     */
+    private function createLabeledNodesCreationStack(array $byLabelsMap): array
     {
-        $stack = Stack::create(self::TAG_NODES_CREATE);
         $statements = [];
+        $populatedStatements = [];
         foreach ($byLabelsMap as $label => $entities) {
             foreach ($entities as $entity) {
-                $query = sprintf('UNWIND {nodes} as node
-                CREATE (n:`%s`) SET n += node.props', $label);
+                $query = sprintf('UNWIND $nodes as node CREATE (n:`%s`) SET n += node.props', $label);
                 $metadata = $this->em->getClassMetadataFor(get_class($entity));
                 $oid = spl_object_hash($entity);
                 $labeledProperties = $metadata->getLabeledPropertiesToBeSet($entity);
@@ -59,7 +63,6 @@ class FlushOperationProcessor
 
                 $query .= ' RETURN id(n) as id, node.oid as oid';
                 $statements[$lblKey]['query'] = $query;
-
                 $propertyValues = [];
                 foreach ($metadata->getPropertiesMetadata() as $field => $meta) {
                     $fieldId = $metadata->getClassName().$field;
@@ -79,16 +82,16 @@ class FlushOperationProcessor
                 }
 
                 $statements[$lblKey]['nodes'][] = [
-                    'props' => $propertyValues,
+                    'props' => empty($propertyValues) ? ParameterHelper::asMap([]) : $propertyValues,
                     'oid' => $oid,
                 ];
             }
         }
 
-        foreach ($statements as $key => $statement) {
-            $stack->push($statement['query'], ['nodes' => $statement['nodes']], $key);
+        foreach ($statements as $statement) {
+            $populatedStatements[] = Statement::create($statement['query'], ['nodes' => $statement['nodes']]);
         }
 
-        return $stack;
+        return $populatedStatements;
     }
 }

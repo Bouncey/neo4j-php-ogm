@@ -12,7 +12,7 @@
 namespace GraphAware\Neo4j\OGM\Proxy;
 
 use Doctrine\Common\Collections\AbstractLazyCollection;
-use GraphAware\Common\Type\Node;
+use Laudis\Neo4j\Types\Node;
 use GraphAware\Neo4j\OGM\Common\Collection;
 use GraphAware\Neo4j\OGM\Metadata\RelationshipMetadata;
 

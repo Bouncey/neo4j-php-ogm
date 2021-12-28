@@ -11,9 +11,7 @@
 
 namespace GraphAware\Neo4j\OGM\Tests\Util;
 
-use GraphAware\Common\Type\Node;
-
-class NodeProxy implements Node
+class NodeProxy
 {
     protected $id;
 

@@ -10,7 +10,7 @@ use GraphAware\Neo4j\OGM\Tests\Integration\Models\Base\User;
  */
 class EntityLifecycleTest extends IntegrationTestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->clearDb();

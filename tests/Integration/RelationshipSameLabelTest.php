@@ -23,7 +23,7 @@ use GraphAware\Neo4j\OGM\Tests\Integration\Models\RelationshipSameLabel\Equipmen
  */
 class RelationshipSameLabelTest extends IntegrationTestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->clearDb();

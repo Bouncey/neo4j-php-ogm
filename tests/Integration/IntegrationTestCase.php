@@ -14,36 +14,20 @@ namespace GraphAware\Neo4j\OGM\Tests\Integration;
 use GraphAware\Neo4j\Client\Event\PreRunEvent;
 use GraphAware\Neo4j\Client\Neo4jClientEvents;
 use GraphAware\Neo4j\OGM\EntityManager;
+use Laudis\Neo4j\Client;
+use PHPUnit\Framework\TestCase;
 
-class IntegrationTestCase extends \PHPUnit_Framework_TestCase
+class IntegrationTestCase extends TestCase
 {
-    protected $calls = [];
+    protected Client $client;
 
-    /**
-     * @var \GraphAware\Neo4j\Client\Client
-     */
-    protected $client;
+    protected  ?EntityManager $em = null;
 
-    /**
-     * @var \GraphAware\Neo4j\OGM\EntityManager
-     */
-    protected $em;
-
-    public function setUp()
+    protected function setUp(): void
     {
         $this->createEntityManager();
         $this->client = $this->em->getDatabaseDriver();
-        $this->registerDatabaseDriverListener();
-
-    }
-
-    private function registerDatabaseDriverListener()
-    {
-        $this->em->getDatabaseDriver()->getEventDispatcher()->addListener(Neo4jClientEvents::NEO4J_PRE_RUN, function(PreRunEvent $event) {
-            foreach ($event->getStatements() as $statement) {
-                $this->calls[] = $statement;
-            }
-        });
+      parent::setUp();
     }
 
     public function clearDb()
@@ -66,12 +50,13 @@ class IntegrationTestCase extends \PHPUnit_Framework_TestCase
 
     protected function assertGraphNotExist($q)
     {
-        $this->assertTrue($this->checkGraph($q)->size() < 1);
+        $this->assertTrue(count($this->checkGraph($q)) < 1, "Graph exists");
     }
 
     protected function assertGraphExist($q)
     {
-        $this->assertTrue($this->checkGraph($q)->size() > 0);
+
+        $this->assertTrue(count($this->checkGraph($q)) > 0, "Graph does not exist");
     }
 
     protected function checkGraph($q)
@@ -81,12 +66,12 @@ class IntegrationTestCase extends \PHPUnit_Framework_TestCase
 
     protected function assertNodesCount($count)
     {
-        $this->assertSame($count, $this->client->run('MATCH (n) RETURN count(n) AS c')->firstRecord()->get('c'));
+        $this->assertSame($count, $this->client->run('MATCH (n) RETURN count(n) AS c')->first()->get('c'));
     }
 
     protected function assertRelationshipsCount($count)
     {
-        $this->assertSame($count, $this->client->run('MATCH (n)-[r]->(o) RETURN count(r) AS c')->firstRecord()->get('c'));
+        $this->assertSame($count, $this->client->run('MATCH (n)-[r]->(o) RETURN count(r) AS c')->first()->get('c'));
     }
 
     protected function playMovies()
@@ -602,6 +587,7 @@ MATCH (a)-[:ACTED_IN]->(m)<-[:DIRECTED]-(d) RETURN a,m,d LIMIT 10
 
     private function createEntityManager()
     {
+      //,http://neo4j:test@neo4j
         $uri = isset($_ENV['NEO4J_USER'])
             ? sprintf(
                 '%s://%s:%s@%s:%s',
@@ -611,8 +597,9 @@ MATCH (a)-[:ACTED_IN]->(m)<-[:DIRECTED]-(d) RETURN a,m,d LIMIT 10
                 getenv('NEO4J_HOST'),
                 getenv('NEO4J_PORT')
             ) : 'http://localhost:7474';
-        $this->em = EntityManager::create(
-            $uri,
+
+          $this->em = EntityManager::create(
+            'bolt://neo4j:test@neo4j',
             __DIR__.'/../../_var/cache'
         );
     }

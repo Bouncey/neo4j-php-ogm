@@ -11,9 +11,10 @@
 
 namespace GraphAware\Neo4j\OGM;
 
-use GraphAware\Common\Result\Result;
 use GraphAware\Neo4j\OGM\Exception\Result\NonUniqueResultException;
 use GraphAware\Neo4j\OGM\Exception\Result\NoResultException;
+use Laudis\Neo4j\Databags\SummarizedResult;
+use Laudis\Neo4j\Types\CypherMap;
 
 class Query
 {
@@ -103,8 +104,9 @@ class Query
         $stmt = $this->cql;
         $parameters = $this->formatParameters();
 
+        /** @var SummarizedResult $result */
         $result = $this->em->getDatabaseDriver()->run($stmt, $parameters);
-        if ($result->size() === 0) {
+        if ($result->count() === 0) {
             return [];
         }
 
@@ -126,18 +128,17 @@ class Query
         return $params;
     }
 
-    private function handleResult(Result $result)
+    private function handleResult(SummarizedResult $result)
     {
         $queryResult = [];
 
-        foreach ($result->records() as $record) {
+        foreach ($result as $nodeKey => $record) {
             $row = [];
             $keys = $record->keys();
 
+
             foreach ($keys as $key) {
-
                 $mode = array_key_exists($key, $this->mappings) ? $this->mappings[$key][1] : self::HYDRATE_RAW;
-
                 if ($mode === self::HYDRATE_SINGLE) {
                     if (count($keys) === 1) {
                         $row = $this->em->getEntityHydrator($this->mappings[$key][0])->hydrateNode($record->get($key));
@@ -146,15 +147,16 @@ class Query
                     }
                 } elseif ($mode === self::HYDRATE_COLLECTION) {
                     $coll = [];
-                    foreach ($record->get($key) as $i) {
-                        $v = $this->em->getEntityHydrator($this->mappings[$key][0])->hydrateNode($i);
+                    foreach($record->get($key) as $collectionNode) {
+                        $v = $this->em->getEntityHydrator($this->mappings[$key][0])->hydrateNode($collectionNode);
                         $coll[] = $v;
                     }
+
                     $row[$key] = $coll;
                 } elseif ($mode === self::HYDRATE_MAP_COLLECTION) {
                     $row[$key] = $this->hydrateMapCollection($record->get($key));
                 } elseif ($mode === self::HYDRATE_MAP) {
-                    $row[$key] = $this->hydrateMap($record->get($key));
+                    $row[$key] = $this->hydrateMap(($record->get($key))->toArray());
                 } elseif ($mode === self::HYDRATE_RAW) {
                     $row[$key] = $record->get($key);
                 }
@@ -194,16 +196,16 @@ class Query
      * addEntityMapping('col', null, Query::HYDRATE_MAP);
      * addEntityMapping('data', OtherNode::class, Query::HYDRATE_COLLECTION);
      *
-     * @param $map array
-     * @return array
+     * @param array|CypherMap $map
+     * @return CypherMap
      */
-    private function hydrateMap(array $map)
+    private function hydrateMap($map)
     {
         $row = [];
         foreach ($map as $key => $value) {
             $row[$key] = $this->hydrateMapValue($key, $value);
         }
-        return $row;
+        return new CypherMap($row);
     }
 
     /**

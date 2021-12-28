@@ -14,9 +14,8 @@ namespace GraphAware\Neo4j\OGM;
 use Doctrine\Common\Collections\AbstractLazyCollection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use GraphAware\Common\Type\Node;
-use GraphAware\Common\Type\Relationship;
-use GraphAware\Neo4j\Client\Stack;
+use Laudis\Neo4j\Types\Node;
+use Laudis\Neo4j\Types\Relationship;
 use GraphAware\Neo4j\OGM\Exception\OGMInvalidArgumentException;
 use GraphAware\Neo4j\OGM\Metadata\NodeEntityMetadata;
 use GraphAware\Neo4j\OGM\Metadata\RelationshipEntityMetadata;
@@ -65,7 +64,7 @@ class UnitOfWork
 
     private $nodesScheduledForDelete = [];
 
-    private $nodesSchduledForDetachDelete = [];
+    private $nodesScheduledForDetachDelete = [];
 
     private $relationshipsScheduledForCreated = [];
 
@@ -180,7 +179,7 @@ class UnitOfWork
                 $aMeta = $this->entityManager->getClassMetadataFor(get_class($entityA));
                 $bMeta = $this->entityManager->getClassMetadataFor(get_class($entityB));
                 $type = $relationship->isRelationshipEntity() ? $this->entityManager->getRelationshipEntityMetadata($relationship->getRelationshipEntityClass())->getType() : $relationship->getType();
-                $hashStr = $aMeta->getIdValue($entityA).$bMeta->getIdValue($entityB).$type.$relationship->getDirection();
+                $hashStr = $aMeta->getIdValue($entityA) . $bMeta->getIdValue($entityB) . $type . $relationship->getDirection();
                 $hash = md5($hashStr);
                 if (!array_key_exists($hash, $this->relationshipsScheduledForCreated)) {
                     $this->relationshipsScheduledForCreated[] = [$entityA, $relationship, $e, $relationship->getPropertyName()];
@@ -220,106 +219,94 @@ class UnitOfWork
             $statements[] = $persister->getCreateQuery($nodeToCreate);
         }
 
-        $tx = $this->entityManager->getDatabaseDriver()->transaction();
-        $tx->begin();
+        $tx = $this->entityManager->getDatabaseDriver()->beginTransaction();
 
-        $nodesCreationStack = $this->flushOperationProcessor->processNodesCreationJob($this->nodesScheduledForCreate);
-        $results = $tx->runStack($nodesCreationStack);
+        $nodesCreationStatements = $this->flushOperationProcessor->processNodesCreationJob($this->nodesScheduledForCreate);
 
+        $results = $tx->runStatements($nodesCreationStatements);
         foreach ($results as $result) {
-            foreach ($result->records() as $record) {
-                $oid = $record->get('oid');
-                $gid = $record->get('id');
+            $result->each(function ($node) {
+                $oid = $node->get('oid');
+                $gid = $node->get('id');
                 $this->hydrateGraphId($oid, $gid);
                 $this->entitiesById[$gid] = $this->nodesScheduledForCreate[$oid];
                 $this->entityIds[$oid] = $gid;
                 $this->entityStates[$oid] = self::STATE_MANAGED;
                 $this->manageEntityReference($oid);
-            }
+            });
         }
 
-        $relStack = $this->entityManager->getDatabaseDriver()->stack('rel_create_schedule');
+        $relationStatements = [];
+
         foreach ($this->relationshipsScheduledForCreated as $relationship) {
-            $statement = $this->relationshipPersister->getRelationshipQuery(
+            $relationStatements[] = $this->relationshipPersister->getRelationshipQuery(
                 $this->entityIds[spl_object_hash($relationship[0])],
                 $relationship[1],
                 $this->entityIds[spl_object_hash($relationship[2])]
             );
-            $relStack->push($statement->text(), $statement->parameters(), $statement->getTag());
         }
 
         if (count($this->relationshipsScheduledForDelete) > 0) {
             foreach ($this->relationshipsScheduledForDelete as $relationship) {
-                $statement = $this->relationshipPersister->getDeleteRelationshipQuery(
+                $relationStatements[] = $this->relationshipPersister->getDeleteRelationshipQuery(
                     $this->entityIds[spl_object_hash($relationship[0])],
                     $this->entityIds[spl_object_hash($relationship[2])],
                     $relationship[1]
                 );
-                $relStack->push($statement->text(), $statement->parameters(), $statement->getTag());
             }
         }
 
-        $tx->runStack($relStack);
-        $reStack = Stack::create('rel_entity_create');
+        $tx->runStatements($relationStatements);
+
+        $relPersistStatements = [];
         foreach ($this->relEntitiesScheduledForCreate as $oid => $info) {
             $rePersister = $this->getRelationshipEntityPersister(get_class($info[0]));
-            $statement = $rePersister->getCreateQuery($info[0], $info[1]);
-            $reStack->push($statement->text(), $statement->parameters());
+            $relPersistStatements[] = $rePersister->getCreateQuery($info[0], $info[1]);
         }
         foreach ($this->relEntitesScheduledForUpdate as $oid => $entity) {
             $rePersister = $this->getRelationshipEntityPersister(get_class($entity));
-            $statement = $rePersister->getUpdateQuery($entity);
-            $reStack->push($statement->text(), $statement->parameters());
+            $relPersistStatements[] = $rePersister->getUpdateQuery($entity);
         }
 
-        $results = $tx->runStack($reStack);
+        $results = $tx->runStatements($relPersistStatements);
         foreach ($results as $result) {
-            foreach ($result->records() as $record) {
-                $gid = $record->get('id');
-                $oid = $record->get('oid');
+            $result->each(function ($node) {
+                $gid = $node->get('id');
+                $oid = $node->get('oid');
                 $this->hydrateRelationshipEntityId($oid, $gid);
                 $this->relationshipEntityStates[$oid] = self::STATE_MANAGED;
-            }
+            });
         }
 
-        $reDeleteStack = Stack::create('rel_entity_delete');
         foreach ($this->relEntitesScheduledForDelete as $o) {
             $statement = $this->getRelationshipEntityPersister(get_class($o))->getDeleteQuery($o);
-            $reDeleteStack->push($statement->text(), $statement->parameters());
-        }
 
-        $results = $tx->runStack($reDeleteStack);
-        foreach ($results as $result) {
-            foreach ($result->records() as $record) {
-                $oid = $record->get('oid');
-                $this->relationshipEntityStates[$record->get('oid')] = self::STATE_DELETED;
-                $id = $this->reEntityIds[$oid];
-                unset($this->reEntityIds[$oid], $this->reEntitiesById[$id]);
+            $results = $tx->runStatement($statement);
+            foreach ($results as $result) {
+                    $oid = $result->get('oid');
+                    $this->relationshipEntityStates[$result->get('oid')] = self::STATE_DELETED;
+                    $id = $this->reEntityIds[$oid];
+                    unset($this->reEntityIds[$oid], $this->reEntitiesById[$id]);
             }
         }
 
-        $updateNodeStack = Stack::create('update_nodes');
+        $remainingStatements = [];
         foreach ($this->nodesScheduledForUpdate as $entity) {
             $this->traverseRelationshipEntities($entity);
-            $statement = $this->getPersister(get_class($entity))->getUpdateQuery($entity);
-            $updateNodeStack->push($statement->text(), $statement->parameters());
+            $remainingStatements[] = $this->getPersister(get_class($entity))->getUpdateQuery($entity);
         }
-        $tx->pushStack($updateNodeStack);
 
-        $deleteNodeStack = Stack::create('delete_nodes');
         $possiblyDeleted = [];
         foreach ($this->nodesScheduledForDelete as $entity) {
-            if (in_array(spl_object_hash($entity), $this->nodesSchduledForDetachDelete)) {
-                $statement = $this->getPersister(get_class($entity))->getDetachDeleteQuery($entity);
+            if (in_array(spl_object_hash($entity), $this->nodesScheduledForDetachDelete)) {
+                $remainingStatements[] = $this->getPersister(get_class($entity))->getDetachDeleteQuery($entity);
             } else {
-                $statement = $this->getPersister(get_class($entity))->getDeleteQuery($entity);
+                $remainingStatements[] = $this->getPersister(get_class($entity))->getDeleteQuery($entity);
             }
-            $deleteNodeStack->push($statement->text(), $statement->parameters());
             $possiblyDeleted[] = spl_object_hash($entity);
         }
-        $tx->pushStack($deleteNodeStack);
 
-        $tx->commit();
+        $tx->commit($remainingStatements);
 
         foreach ($this->relationshipsScheduledForCreated as $rel) {
             $aoid = spl_object_hash($rel[0]);
@@ -344,7 +331,7 @@ class UnitOfWork
         $this->nodesScheduledForCreate
             = $this->nodesScheduledForUpdate
             = $this->nodesScheduledForDelete
-            = $this->nodesSchduledForDetachDelete
+            = $this->nodesScheduledForDetachDelete
             = $this->relationshipsScheduledForCreated
             = $this->relationshipsScheduledForDelete
             = $this->relEntitesScheduledForUpdate
@@ -398,7 +385,7 @@ class UnitOfWork
             $reA = $this->reEntitiesById[$this->reEntityIds[$oid]];
             $reB = $this->relationshipEntityReferences[$this->reEntityIds[$oid]];
             $this->computeRelationshipEntityChanges($reA, $reB);
-//            $this->checkRelationshipEntityDeletions($reA);
+            //            $this->checkRelationshipEntityDeletions($reA);
         }
     }
 
@@ -474,7 +461,6 @@ class UnitOfWork
                 }
             }
         }
-
     }
 
     public function scheduleRelationshipReferenceForCreate($entity, $target, RelationshipMetadata $relationship)
@@ -572,7 +558,7 @@ class UnitOfWork
         if ($this->isNodeEntity($entity)) {
             $this->nodesScheduledForDelete[] = $entity;
             if ($detachRelationships) {
-                $this->nodesSchduledForDetachDelete[] = spl_object_hash($entity);
+                $this->nodesScheduledForDetachDelete[] = spl_object_hash($entity);
             }
 
             return;
@@ -803,7 +789,7 @@ class UnitOfWork
         $classMetadata = $this->entityManager->getClassMetadataFor($className);
         $entity = $this->newInstance($classMetadata, $node);
         $oid = spl_object_hash($entity);
-        $this->originalEntityData[$oid] = $node->values();
+        $this->originalEntityData[$oid] = $node->getProperties();
         $classMetadata->setId($entity, $id);
         $this->addManaged($entity);
 
@@ -815,8 +801,8 @@ class UnitOfWork
         $classMetadata = $this->entityManager->getClassMetadataFor($className);
         $o = $classMetadata->newInstance();
         $oid = spl_object_hash($o);
-        $this->originalEntityData[$oid] = $relationship->values();
-        $classMetadata->setId($o, $relationship->identity());
+        $this->originalEntityData[$oid] = $relationship->getProperties();
+        $classMetadata->setId($o, $relationship->getId());
         $this->addManagedRelationshipEntity($o, $sourceEntity, $field);
 
         return $o;
@@ -1031,7 +1017,6 @@ class UnitOfWork
     private function isNodeEntity($entity)
     {
         $meta = $this->entityManager->getClassMetadataFor(get_class($entity));
-
         return $meta instanceof NodeEntityMetadata;
     }
 
