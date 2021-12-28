@@ -28,6 +28,14 @@ jobs:
       
       - name: Composer Install
         uses: php-actions/composer@v6
+      
+      - name: Wait for dependant services
+        uses: nev7n/wait_for_response@v1
+        with:
+          url: 'http://localhost:7474/'
+          responseCode: 200
+          timeout: 60000
+          interval: 5000
 
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
      
