@@ -599,7 +599,7 @@ MATCH (a)-[:ACTED_IN]->(m)<-[:DIRECTED]-(d) RETURN a,m,d LIMIT 10
             ) : 'http://localhost:7474';
 
           $this->em = EntityManager::create(
-            'bolt://neo4j:test@neo4j',
+            'bolt://neo4j:test@localhost:7474',
             __DIR__.'/../../_var/cache'
         );
     }

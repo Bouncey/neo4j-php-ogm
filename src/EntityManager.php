@@ -260,10 +260,7 @@ class EntityManager implements EntityManagerInterface
         return $this->uow;
     }
 
-    /**
-     * @return \Laudis\Neo4j\Contracts\ClientInterface
-     */
-    public function getDatabaseDriver()
+    public function getDatabaseDriver(): ClientInterface
     {
         return $this->databaseDriver;
     }
